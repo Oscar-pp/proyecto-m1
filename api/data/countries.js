@@ -1,4 +1,4 @@
-[
+export default [
     {
         "code": "GA",
         "name": "",
