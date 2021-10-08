@@ -2,12 +2,12 @@ import routesModel from '../model/routesModel.js';
 
 const routesList = (req,res) =>{
 
-    origenCiudad = req.params.origen;
-    console.log(origen);
-    const routesOrigen = routesModel.getRoutesList(origenCiudad);
-    res.json(routesOrigen);
+    const urlParameters = {origen:req.query.origen, destino:req.query.destino};
+    const routesTravel = routesModel.getRoutesList(urlParameters);
+    res.json(routesTravel);
 }
 
 export default {
     routesList
+    
 }

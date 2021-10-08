@@ -2,9 +2,11 @@ import routes from '../data/routes.js';
 
 class RoutesModel{
 
-    getRoutesList(origen){
+    getRoutesList(dataParameters){
         
-        return routes.findIndex(element => (element.departure_airport_iata == origen))    
+        const queryRoutes = routes.filter(element => (element.departure_airport_iata == dataParameters.origen)&&
+                                                (element.arrival_airport_iata == dataParameters.destino));
+        return queryRoutes;
     }
 
 }

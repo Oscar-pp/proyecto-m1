@@ -11,11 +11,13 @@ Content-Type: application/json
 
 ######
 
+
 GET http://localhost:3000/api/cities
 Content-Type: application/json
 
 
 ######
+
 
 GET http://localhost:3000/api/countries
 Content-Type: application/json
@@ -23,8 +25,23 @@ Content-Type: application/json
 
 ######
 
-GET http://localhost:3000/api/routes/?origen=BCN
+
+GET http://localhost:3000/api/routes/?origen=BCN&destino=CGN
 Content-Type: application/json
 
 
 ######
+
+
+GET http://localhost:3000/api/routes/?origen=CGN&destino=BCN
+Content-Type: application/json
+
+
+#######
+
+
+GET http://localhost:3000/api/routes/
+
+Content-Type: application/json
+
+

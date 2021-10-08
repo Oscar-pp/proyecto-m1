@@ -6,6 +6,5 @@ const countriesList = (req,res) =>{
 }
 
 export default {
-
     countriesList
 }
