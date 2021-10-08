@@ -2,8 +2,9 @@ import routes from '../data/routes.js';
 
 class RoutesModel{
 
-    getRoutesList(){
-        return routes;        
+    getRoutesList(origen){
+        
+        return routes.findIndex(element => (element.departure_airport_iata == origen))    
     }
 
 }

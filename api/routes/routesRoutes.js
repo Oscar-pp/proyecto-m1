@@ -4,7 +4,7 @@ import routesController from '../controller/routesController.js';
 
 const router = Router();
 
-router.route('/')
+router.route('/:origen')
             .get(routesController.routesList);
 
 

@@ -23,7 +23,7 @@ Content-Type: application/json
 
 ######
 
-GET http://localhost:3000/api/routes
+GET http://localhost:3000/api/routes/?origen=BCN
 Content-Type: application/json
 
 
