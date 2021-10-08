@@ -1,6 +1,6 @@
 import airports from '../data/airports.js'
 
-class AirportModel{
+class AirportsModel{
 
     getAirportsList(){
         return airports;        
@@ -10,4 +10,4 @@ class AirportModel{
 }
 
 
-export default new AirportModel();
+export default new AirportsModel();

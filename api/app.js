@@ -1,6 +1,10 @@
 import express from "express";
 import dotenv from 'dotenv';
-import airportsRoutes from './routes/airportsRoutes.js'
+import airportsRoutes from './route/airportsRoutes.js'
+import airlinesRoutes from './route/airlinesRoutes.js'
+import citiesRoutes from './route/citiesRoutes.js'
+import countriesRoutes from './route/countriesRoutes.js'
+import routesRoutes from './route/routesRoutes.js'
 
 
 // Cuando pasemos a produccion Heroku hay que quitar

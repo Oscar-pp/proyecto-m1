@@ -1,4 +1,4 @@
-import AirportModel from '../model/airportsModel.js';
+import AirportsModel from '../model/airportsModel.js';
 
 const airportsList = (req,res) =>{
     const airports = AirportModel.getAirportsList();
