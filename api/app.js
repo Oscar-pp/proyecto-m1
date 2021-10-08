@@ -14,7 +14,12 @@ const app = express();
 app.use(express.json());
 
 //app.use('/users',userRouter);
-app.use('/api/airports',airportsRoutes)
+app.use('/api/airports',airportsRoutes);
+app.use('/api/airlines',airlinesRoutes);
+app.use('/api/cities',citiesRoutes);
+app.use('/api/countries',countriesRoutes);
+app.use('/api/routes',routesRoutes);
+
 
 
 export default app;
