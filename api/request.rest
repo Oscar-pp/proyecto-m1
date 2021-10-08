@@ -1,4 +1,29 @@
+GET http://localhost:3000/api/airlines
+Content-Type: application/json
+
+
+######
+
+
 GET http://localhost:3000/api/airports
+Content-Type: application/json
+
+
+######
+
+GET http://localhost:3000/api/cities
+Content-Type: application/json
+
+
+######
+
+GET http://localhost:3000/api/countries
+Content-Type: application/json
+
+
+######
+
+GET http://localhost:3000/api/routes
 Content-Type: application/json
 
 
