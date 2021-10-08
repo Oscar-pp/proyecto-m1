@@ -1,4 +1,4 @@
-[
+export default [
     {
         "city_code": "HOU",
         "country_code": "US",

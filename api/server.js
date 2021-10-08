@@ -1,5 +1,7 @@
 import app from "./app.js";
 
-// const PORT = 3000;
 
-app.listen(process.env.PORT,()=>console.log(`listening on ${process.env.PORT}`));
+// const PORT = 3000; ---> lo sustituimos por process.env.PORT
+// al pasar la constante PORT a .env
+
+app.listen(3000,()=>console.log(`Airport is running in 3000`));
