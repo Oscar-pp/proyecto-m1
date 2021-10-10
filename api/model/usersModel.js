@@ -5,11 +5,10 @@ class User {
     createUser(newUser) {
         newUser.userId = users.length + 1;
         users.push(newUser);
-        console.log(users);
-        return users.find(element => element.username == newUser.username);
+        return users.find(element => element.userId == newUser.userId);
     }
     loginUser(user) {
-        return users.find(element => (element.username == newUser.username))
+        return users.find(element => (element.username == user.username))
     }
 }
 

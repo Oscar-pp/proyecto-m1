@@ -5,12 +5,14 @@ import bcrypt from 'bcrypt';
 
 const encryptPassword = async (req, res, next) => {
     try {
+        console.log(req.body);
         const saltRounds = 10;
-
         const passwordHash = await bcrypt.hash(req.body.password, saltRounds);
+        console.log(passwordHash);
         req.body.password = passwordHash;
-        // console.log(passwordHash);
+
         next();
+
     } catch (error) {
         next(error);
     }
@@ -19,18 +21,14 @@ const encryptPassword = async (req, res, next) => {
 
 const authUser = (req, res, next) => {
 
-    const authorization = req.get('authorization');
+    const authBearer = req.get('authorization');
 
-    if (!authorization) {
-        next(HttpError(401, { message: 'No hay token' }));
+    if (!authBearer) {
+        next(HttpError(401, { message: 'No authorization token' }));
     } else {
-        const token = authorization.substring(7);
 
-        //desencriptar el token para obtener el user
-        //comparar el usuario del token con el usuario de la bd
-        //obtenemos fecha caducidad token
-
-        token ? next() : next(HttpError(401, { message: 'El token no es correcto' }))
+        const tokenUser = authBearer.split(' ').authBearer[1];
+        tokenUser ? next() : next(HttpError(401, { message: 'Token invalid' }))
 
     }
 
