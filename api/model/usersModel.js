@@ -8,7 +8,7 @@ class User {
         return users.find(element => element.userId == newUser.userId);
     }
     loginUser(user) {
-        return users.find(element => (element.username == user.username))
+        return users.find(element => (element.username == user.username));
     }
 }
 

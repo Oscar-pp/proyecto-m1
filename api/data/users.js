@@ -11,7 +11,7 @@ export default [
     {
         "userId": 2,
         "username": "Andreu",
-        "password": "",
+        "password": "222",
         "rol": "user",
         "routes": []
     },

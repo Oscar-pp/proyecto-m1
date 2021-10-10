@@ -1,9 +1,9 @@
 import usersModel from "../model/usersModel.js";
 import bcrypt from 'bcrypt';
 import HttpError from "http-errors";
-import authHandler from '../middleware/authHandler.js'
+import authHandler from '../middleware/authHandler.js';
 
-const register = async (req, res, next) => {
+const register = (req, res, next) => {
 
 
     try {
@@ -14,11 +14,12 @@ const register = async (req, res, next) => {
             next(HttpError(400, { message: "Input parameters error" }));
         } else {
 
+
             const newUser = {
 
                 userId: 0,
                 username: logDataUser.username,
-                password: logDataUser.password, //await authHandler.encryptPassword(logDataUser.password),
+                password: logDataUser.password,
                 rol: "user",
                 routes: []
 
@@ -26,9 +27,8 @@ const register = async (req, res, next) => {
 
             const result = usersModel.createUser(newUser);
 
-
             if (result < 0)
-                next(HttpError(400, { message: 'No possible register' }))
+                next(HttpError(400, { message: 'No possible register' }));
 
             res.status(201).json(result);
 
@@ -45,21 +45,28 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
 
     try {
-        const body = req.body;
+        const logDataUser = req.body;
 
-        if (!body.username || !body.password) {
-            next(HttpError(400, { message: 'Error en los parámetros de entrada' }))
+        if (!logDataUser.username || !logDataUser.password) {
+            next(HttpError(400, { message: 'Input parameters error' }))
         } else {
-            const user = { username: body.username, password: body.password };
+            const userLogin = {
 
-            const result = usersModel.loginUser(user);
+                userId: '',
+                username: logDataUser.username,
+                password: logDataUser.password,
+                rol: "user",
+                routes: []
+            };
+
+            const result = usersModel.loginUser(userLogin);
 
             if (result === undefined) {
                 next(HttpError(400, { message: 'Username or Password incorrect' }));
             } else {
-                await bcrypt.compare(body.password, result.password);
+                await bcrypt.compare(logDataUser.password, result.password);
 
-                res.status(200).json({ token: SECRET });
+                res.status(200).json({ token: process.env.SECRET });
             }
         }
     }

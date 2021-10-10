@@ -6,12 +6,13 @@ const router = Router();
 
 
 router.use(authHandler.encryptPassword);
-
 router.route('/register')
-        .post(authHandler.encryptPassword)
-        .post(usersController.register);
+            .post(usersController.register);
 
-router.route('/login').post(usersController.login);
+
+router.use(authHandler.authUser)
+router.route('/login')
+            .post(usersController.login);
 
 
 
