@@ -3,6 +3,9 @@ import bcrypt from 'bcrypt';
 import HttpError from "http-errors";
 import authHandler from '../middleware/authHandler.js';
 
+
+
+
 const register = (req, res, next) => {
 
 
@@ -45,34 +48,36 @@ const register = (req, res, next) => {
 const login = async (req, res, next) => {
 
     try {
-        const logDataUser = req.body;
+        const body = req.body;
 
-        if (!logDataUser.username || !logDataUser.password) {
-            next(HttpError(400, { message: 'Input parameters error' }))
+        if (!body.username || !body.password) {
+            next(HttpError(400, { message: 'entry parameters error' }))
         } else {
-            const userLogin = {
-
-                userId: '',
-                username: logDataUser.username,
-                password: logDataUser.password,
-                rol: "user",
-                routes: []
-            };
-
-            const result = usersModel.loginUser(userLogin);
-
+            
+            const result = usersModel.loginUser({ username: body.username });
+console.log(result)
             if (result === undefined) {
-                next(HttpError(400, { message: 'Username or Password incorrect' }));
+                next(HttpError(401, { message: 'Username or Password incorrect' }));
             } else {
-                await bcrypt.compare(logDataUser.password, result.password);
-
-                res.status(200).json({ token: process.env.SECRET });
+console.log(body.password, result.password)
+                const passwordCorrect = await bcrypt.compare( body.password, result.password);
+console.log(passwordCorrect)
+                if (!passwordCorrect) {
+                    
+                    next(HttpError(400, { message: 'Username or Password incorrect' }));
+                }
+                else {
+                    
+                    const token = authHandler.generateToken(body.username);
+                    res.status(200).json({ token: token });
+                }
             }
         }
     }
     catch (error) {
         next(error);
     }
+
 }
 
 export default {

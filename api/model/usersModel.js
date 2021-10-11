@@ -11,5 +11,5 @@ class User {
         return users.find(element => (element.username == user.username));
     }
 }
-
+ 
 export default new User();

@@ -8,13 +8,7 @@ export default [
         "routes": []
     },
 
-    {
-        "userId": 2,
-        "username": "Andreu",
-        "password": "222",
-        "rol": "user",
-        "routes": []
-    },
+    
 
 
 
