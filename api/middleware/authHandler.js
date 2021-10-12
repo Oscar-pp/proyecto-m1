@@ -36,7 +36,7 @@ const authUser = (req, res, next) => {
 const generateToken = (username) => {
     //const SECRET = "HOLA"
     console.log(process.env.SECRET)
-    return jwt.sign({username: username}, process.env.SECRET);
+    return jwt.sign({username: username}, "HOLA");
 
 }
 

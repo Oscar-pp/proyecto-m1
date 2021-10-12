@@ -16,10 +16,11 @@ import clientErrorHandler from './middleware/errorHandler.js';
 // import dotenv from 'dotenv' y dotenv.config(); 
 // pasarlo al package.json
 //"start": "node -r dotenv/config server.js"
+dotenv.config();
 
 const app = express();
 
-dotenv.config();
+
 
 app.use(express.json());
 
@@ -31,8 +32,6 @@ app.use('/api/countries', countriesRoutes);
 app.use('/api/routes', routesRoutes);
 app.use('/api/routesUser', routesUserRoutes);
 app.use('/api/users', usersRoutes);
-
-
 app.use('/api/admin', adminRoutes);
 
 

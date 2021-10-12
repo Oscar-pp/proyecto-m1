@@ -1,5 +1,5 @@
 import users from '../data/users.js';
-import HttpError from 'http-errors';
+
 class Admin {
 
     getUsers() {

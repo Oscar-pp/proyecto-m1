@@ -5,7 +5,7 @@ const router = Router();
 
 router.route('/')
     .get(routesUserController.getAllRoutesUser)
-    .post(routesUserController.pushRouteUser)
+    .post(routesUserController.putRouteUser)
     .delete(routesUserController.deleteAllRouteUser)
 
 

@@ -4,8 +4,6 @@ import HttpError from "http-errors";
 import authHandler from '../middleware/authHandler.js';
 
 
-
-
 const register = (req, res, next) => {
 
 
@@ -64,7 +62,7 @@ console.log(body.password, result.password)
 console.log(passwordCorrect)
                 if (!passwordCorrect) {
                     
-                    next(HttpError(400, { message: 'Username or Password incorrect' }));
+                    next(HttpError(401, { message: 'Username or Password incorrect' }));
                 }
                 else {
                     
