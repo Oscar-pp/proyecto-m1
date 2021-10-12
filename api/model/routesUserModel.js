@@ -3,25 +3,26 @@ import users from '../data/users.js';
 
 class RoutesUser {
 
-    putDatasRoute(datas) {
-        return users.routes.push(datas);
-    }
-
-    listAllRoutesUser(idUser){
-        const userData = users.find(element => element.userId == idUser);
-        const allListRoutes = userData.routes;
-        return allListRoutes;
+    listAllRoutesUser(idUser) {
+        
+        //const userData = users.routes.find(element => element.userId == idUser);
+        //const allListRoutes = userData.routes;
+        return users[1].routes;
 
     }
 
-    deleteAllRoutesUser(idUser){
-        const userData = users.find(element => element.userId == idUser);
-        users.routes = [];
-        return userData;
+
+    postDatasRoute(datas) {
+        users[1].routes.push(datas);
+        return users;
     }
 
 
 
-
-
+    deleteAllRoutesUser(idUser) {
+        const position = users.findIndex(element => element.userId == idUser)
+        //const userData = users[1].routes
+        const userData = users[1].routes.splice(0,1);
+        return users;
+    }
 } export default new RoutesUser();

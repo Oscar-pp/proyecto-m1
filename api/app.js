@@ -1,5 +1,5 @@
 import express from "express";
-import dotenv from 'dotenv';
+//import dotenv from "dotenv";
 import airportsRoutes from './routes/airportsRoutes.js';
 import airlinesRoutes from './routes/airlinesRoutes.js';
 import citiesRoutes from './routes/citiesRoutes.js';
@@ -16,11 +16,9 @@ import clientErrorHandler from './middleware/errorHandler.js';
 // import dotenv from 'dotenv' y dotenv.config(); 
 // pasarlo al package.json
 //"start": "node -r dotenv/config server.js"
-dotenv.config();
 
 const app = express();
-
-
+//dotenv.config()
 
 app.use(express.json());
 

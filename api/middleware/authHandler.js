@@ -19,14 +19,14 @@ const encryptPassword = async (req, res, next) => {
 
 const authUser = (req, res, next) => {
 
-    const authBearer = req.get('authorization');
+    const authBearer = req.get('Authorization');
 
     if (!authBearer) {
         next(HttpError(401, { message: 'No authorization token' }));
     } else {
 
         const tokenUser = authBearer.split(' ')[1];
-        
+console.log(tokenUser)
         tokenUser ? next() : next(HttpError(401, { message: 'Token invalid' }))
 
     }
@@ -34,9 +34,9 @@ const authUser = (req, res, next) => {
 }
 
 const generateToken = (username) => {
-    //const SECRET = "HOLA"
-    console.log(process.env.SECRET)
-    return jwt.sign({username: username}, "HOLA");
+    const HASHSECRET = "HOLA"
+    //const HASHSECRET = process.env.SECRET;
+    return jwt.sign({ username: username }, HASHSECRET);
 
 }
 

@@ -1,10 +1,5 @@
-import routesUserModel from '../model/routesUserModel.js';
-import bcrypt from 'bcrypt';
+import RoutesUser from '../model/routesUserModel.js';
 import HttpError from "http-errors";
-import authHandler from '../middleware/authHandler.js';
-
-
-
 
 const getAllRoutesUser = (req, res, next) => {
 
@@ -12,21 +7,21 @@ const getAllRoutesUser = (req, res, next) => {
 
         const datas = req.body;
 
-        const listDatas = routesUserController.listAllRoutesUser(datas.idUser);
+        const listDatas = RoutesUser.listAllRoutesUser(datas.userId);
         res.status(200).json(listDatas);
 
     } catch (error) {
         next(error);
     }
 }
-
-const putRouteUser = (req, res, next) => {
+ 
+const postRouteUser = (req, res, next) => {
     // origen, destino, airline
     try {
 
-        const selectRoute = req.params;
+        const selectRoute = req.body;
 
-        const putDatas = routesUserController.putDatasRoute(selectRoute);
+        const putDatas = RoutesUser.postDatasRoute(selectRoute);
         res.status(200).json(putDatas);
 
     } catch (error) {
@@ -40,7 +35,7 @@ const deleteAllRouteUser = (req, res, next) => {
 
         const datas = req.body;
 
-        const listDatas = routesUserController.deleteAllRoutesUser(datas.idUser);
+        const listDatas = RoutesUser.deleteAllRoutesUser(datas.idUser);
         res.status(200).json(listDatas);
 
 
@@ -52,6 +47,6 @@ const deleteAllRouteUser = (req, res, next) => {
 export default {
 
     getAllRoutesUser,
-    putRouteUser,
+    postRouteUser,
     deleteAllRouteUser
 }

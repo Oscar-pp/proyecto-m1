@@ -6,7 +6,13 @@ export default [
         "password": "admin",
         "rol": "admin",
         "routes": []
-    },
+    },{
+        "userId": 2,
+        "username": "pepe",
+        "password": "secreto",
+        "rol": "user",
+        "routes": []
+    }
 
     
 

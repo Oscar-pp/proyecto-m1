@@ -5,10 +5,10 @@ import authHandler from '../middleware/authHandler.js';
 
 const router = Router();
 
-router.use(authHandler.encryptPassword);
+//router.use(authHandler.encryptPassword);
 
 router.route('/register')
-            .post(usersController.register);
+            .post(authHandler.encryptPassword,usersController.register);
 
 router.route('/login')
             .post(usersController.login);
