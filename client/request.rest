@@ -1,0 +1,134 @@
+
+// Countries 	list 	El usuario lista todos los códigos de países
+
+GET http://localhost:3000/api/countries
+Content-Type: application/json
+
+
+######
+
+// Rutas 	List 	El usuario accede a una lista de rutas 	origen, destino
+
+GET http://localhost:3000/api/routes/?origen=MAD&destino=BCN
+Content-Type: application/json
+
+
+
+######
+
+// Airlines 	list 	El usuario lista todos los códigos de aerolíneas
+
+GET http://localhost:3000/api/airlines
+Content-Type: application/json
+
+
+######
+
+// Airports 	list 	El usuario lista todos los códigos de aeropuertos
+
+GET http://localhost:3000/api/airports
+Content-Type: application/json
+
+
+######
+
+// Cities 	list 	El usuario lista todos los códigos de ciudades
+
+GET http://localhost:3000/api/cities
+Content-Type: application/json
+
+
+######
+
+// User 	Register 	El usuario se registra desde la aplicación cliente 	username, password
+
+POST http://localhost:3000/api/users/register/
+Content-Type: application/json
+
+{
+    "userId":2,
+    "username":"rere13s",
+    "password":"5",
+    "rol":"user",
+    "routes":[]
+}
+
+#######
+
+// User 	Login 	El usuario se autentica desde la aplicación cliente 	username, password
+
+POST http://localhost:3000/api/users/login/
+Content-Type: application/json
+
+{
+    "userId":2,
+    "username":"rere13s",
+    "password":"5",
+    "rol":"user",
+    "routes":[]
+}
+
+
+#######
+
+// Admin 	List 	Un usuario con el rol de administrador, autenticado, lista todos los usuarios
+
+GET http://localhost:3000/api/admin/
+Content-Type: application/json
+
+
+#######
+
+// Admin 	Remove One 	  Un usuario con el rol de administrador, autenticado, elimina un usuario 	idUsuario
+
+DELETE http://localhost:3000/api/admin/
+Content-Type: application/json
+
+{
+    "userId":2
+}
+
+
+########
+
+// RutasUsuario 	Crea varias 	Un usuario con el rol de usuario, autenticado, guarda un array de rutas en su perfil 	array de rutas
+
+POST http://localhost:3000/api/routesUser/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJlcmUxM3MiLCJpYXQiOjE2MzQwNzkwMzN9.YLxzgC1D-lAq5SmZ18xNh8pZkMvBb9ffz-KyOVxWSKw
+
+[{
+    "departure_airport_iata": "BCN",
+    "arrival_airport_iata": "CMN",
+    "airport": "el prat"
+    
+},{
+    "departure_airport_iata": "CMN",
+    "arrival_airport_iata": "BCN",
+    "airport": "MARACAIBO"
+    
+}]
+
+
+#########
+
+// RutasUsuario 	List 	Un usuario con el rol de usuario, autenticado, lee todas las rutas de su perfil
+
+GET http://localhost:3000/api/routesUser/
+Content-Type: application/json
+
+{
+    "userId":1
+}
+
+
+########
+
+// RutasUsuario 	Remove 	Un usuario con el rol de usuario, autenticado, borra todas sus rutas de su perfil
+
+DELETE http://localhost:3000/api/routesUser/
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJlcmUxM3MiLCJpYXQiOjE2MzQwNzg4MzR9.xVmjiNaq52BfFG2rZDNKMyq6Kgi1AvmwVsni7biQ1Tc
+
+{
+    "userId":1
+}
