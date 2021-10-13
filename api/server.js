@@ -1,5 +1,7 @@
 import app from "./app.js";
-const PORT = 3000; 
+import dotenv from "dotenv";
+dotenv.config()
+const PORT = process.env.PORT 
 //---> lo sustituimos por process.env.PORT
 // al pasar la constante PORT a .env
 

@@ -4,10 +4,12 @@ import authHandler from '../middleware/authHandler.js';
 
 const router = Router();
 
-router.route('/')
-    .get(authHandler.authUser,routesUserController.getAllRoutesUser)
+router.route('/getRoutesUser')
+    .get(authHandler.authUser, routesUserController.getAllRoutesUser)
+router.route('/postRoutesUser')
     .post(routesUserController.postRouteUser)
-    .delete(authHandler.authUser,routesUserController.deleteAllRouteUser)
+router.route('/deleteRoutesUser')
+    .delete(authHandler.authUser, routesUserController.deleteAllRouteUser)
 
 
 export default router;

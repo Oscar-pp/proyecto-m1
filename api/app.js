@@ -1,5 +1,5 @@
 import express from "express";
-//import dotenv from "dotenv";
+
 import airportsRoutes from './routes/airportsRoutes.js';
 import airlinesRoutes from './routes/airlinesRoutes.js';
 import citiesRoutes from './routes/citiesRoutes.js';
